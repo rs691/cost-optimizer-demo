@@ -1,0 +1,44 @@
+name: Deploy Static Demo to GitHub Pages
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events for the 'main' branch
+  push:
+    branches: [ main ]
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions granted to the GITHUB_TOKEN for deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # Single deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # This step creates a deployment artifact from the root of the repository.
+      # Since your demo is a single HTML file (parts_cost_estimator.html), 
+      # it will be the only thing copied.
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository content, which includes parts_cost_estimator.html
+          path: '.' 
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -5,6 +5,11 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss(
+    {
+      // Tailwind CSS options
+      darkMode: 'class',
+    }
+  )],
   base: '/cost-optimizer-demo/',
 })

@@ -11,7 +11,11 @@
 
 ## ✨ Overview
 
-The **Cost Optimization Dashboard** is a sophisticated web application designed to streamline project cost estimation through dynamic pricing rules, real-time filtering, and intuitive data visualization. Built with modern web technologies, it provides instant feedback and comprehensive cost breakdowns for hardware procurement projects.
+This tool is designed to streamline project cost estimation by leveraging pricing catalogs and vendor APIs.
+
+Built using a traditional PHP, JavaScript, and MySQL tech stack, it provides departments like Procurement and Installations with crucial real-time data. This includes part pricing, available quantities, and order fulfillment dates, which assists them in creating comprehensive cost breakdowns and accurately predicting project completion dates.
+
+
 
 ### 🎯 Key Features
 
